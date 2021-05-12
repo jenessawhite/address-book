@@ -1,0 +1,39 @@
+<h1>Edit <%= @contact.name %></h1>
+
+<%= form_with url: contacts_path, method: :put do |f| %>
+  <div>
+    <%= f.label :name %>
+    <div>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  
+  <div>
+    <%= f.label :email_address %>
+    <div>
+      <%= f.text_field :email_address %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :phone_number %>
+    <div>
+      <%= f.text_field :phone_number %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :birthday %>
+    <div>
+      <%= f.text_field :birthday %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :company %>
+    <div>
+      <%= f.text_field :company %>
+    </div>
+  </div>
+  <%= f.submit "Save" %>
+<%- end %>

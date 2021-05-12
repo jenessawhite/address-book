@@ -1,8 +1,9 @@
-<h1>Address Contacts</h1>
+<h1>Contacts</h1>
+
 <ul>
-<% @contacts.each do |contact| %>
-<li>
-<h3><%= contact.name %></h3>
-</li>
-<% end %>
+  <% @contacts.each do |contact| %>
+    <li>
+    <a href="/contacts/<%= contact.id %>"><h3><%= contact.name %></h3></a>
+    </li>
+  <% end %>
 </ul>
