@@ -5,22 +5,26 @@ class ContactsController < ApplicationController
 
   def show
     find_contact
-    # @contact = Contact.find_by!(id: params[:id])
   end
 
   def edit
     find_contact
-    # @contact = Contact.find_by!(id: params[:id])
   end
 
   def update
     find_contact
-    # @contact = Contact.find_by!(id: params[:id])
+    @contact.update(contact_params)
+
+    if @contact.errors.any?
+      render json: {errors: @contact.errors.full_messages}, status: 422
+    else
+      redirect_to contact_path if @contact.save
+    end
   end
 
   def new
     @contact = Contact.new(contact_params)
-    redirect_to contacts_path(@contact.id) if @contact.save
+    redirect_to contact_path if @contact.save
   end
 
   private

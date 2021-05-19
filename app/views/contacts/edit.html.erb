@@ -1,13 +1,13 @@
 <h1>Edit <%= @contact.name %></h1>
 
-<%= form_with url: contacts_path, method: :put do |f| %>
+<%= form_with model: @contact do |f| %>
   <div>
     <%= f.label :name %>
     <div>
       <%= f.text_field :name %>
     </div>
   </div>
-  
+
   <div>
     <%= f.label :email_address %>
     <div>
