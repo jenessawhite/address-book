@@ -1,1 +1,8 @@
 <h1><%= @contact.name %></h1>
+<a href="<%= edit_contact_path %>">Edit</a>
+
+<ul>
+  <li>Phone: <a href="tel:+<%= @contact.phone_number %>"><%= @contact.phone_number %></a></li>
+  <li>Email: <a href="mailto:<%= @contact.email_address %>"><%= @contact.email_address %></a></li>
+  <li>Company: <%= @contact.company %></li>
+</ul>
