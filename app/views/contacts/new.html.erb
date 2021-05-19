@@ -1,13 +1,22 @@
 <h1>Add new contact</h1>
 
-<form action="" method="post">
-<label for=""> Name
-  <input type="text">
-</label>
-<label for="">Email Address
-  <input type="email" name="" id="">
-</label>
-<label for="">Phone Number
-  <input type="tel" name="" id="">
-</label>
-</form>
+<%= form_with model: @contact do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email_address %>
+  <%= f.email_field :email_address %>
+
+  <%= f.label :phone_number %>
+  <%= f.telephone_field :phone_number %>
+
+  <%= f.label :birthday %>
+  <%= f.date_field :birthday %>
+
+  <%= f.label :company %>
+  <%= f.text_field :company %>
+
+  <%= f.submit "Create" %>
+
+<% end %>

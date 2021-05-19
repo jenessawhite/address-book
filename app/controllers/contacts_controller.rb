@@ -22,9 +22,14 @@ class ContactsController < ApplicationController
     end
   end
 
-  def new
+  def create
     @contact = Contact.new(contact_params)
-    redirect_to contact_path if @contact.save
+
+    if @contact.errors.any?
+      render json: {errors: @contact.errors.full_messages}, status: 422
+    else
+      redirect_to contact_path if @contact.save
+    end
   end
 
   private

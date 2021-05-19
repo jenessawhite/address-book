@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "contacts#index"
 
   resources :contacts
+  post "contacts/new", to: "contacts#create"
 end
