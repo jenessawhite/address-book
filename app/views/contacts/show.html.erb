@@ -1,5 +1,8 @@
 <h1><%= @contact.name %></h1>
 <a href="<%= edit_contact_path %>">Edit</a>
+<%= link_to "Delete", contact_path,
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
 
 <ul>
   <li>Phone: <a href="tel:+<%= @contact.phone_number %>"><%= @contact.phone_number %></a></li>

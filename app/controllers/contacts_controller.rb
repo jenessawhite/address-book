@@ -11,6 +11,10 @@ class ContactsController < ApplicationController
     find_contact
   end
 
+  def new
+    @contact = Contact.new()
+  end
+
   def update
     find_contact
     @contact.update(contact_params)
@@ -23,12 +27,23 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params)
+    @contact = Contact.create(contact_params)
 
     if @contact.errors.any?
       render json: {errors: @contact.errors.full_messages}, status: 422
     else
-      redirect_to contact_path if @contact.save
+      redirect_to contact_path(@contact)
+    end
+  end
+
+  def destroy
+    find_contact
+    @contact.destroy
+
+    if @contact.errors.any?
+      render json: {errors: @contact.errors.full_messages}, status: 422
+    else
+      redirect_to root_path
     end
   end
 
