@@ -10,4 +10,10 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
     get contacts_url
     assert_equal Contact.all, assigns(:contacts)
   end
+
+  test "should delete contacts" do
+    contact = contacts(:one)
+    delete contact_url(contact)
+    assert_raise(ActiveRecord::RecordNotFound) { contact.reload }
+  end
 end
