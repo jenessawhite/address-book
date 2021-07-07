@@ -6,7 +6,9 @@
 
 <ul>
   <li>Phone: <a href="tel:+<%= @contact.phone_number %>"><%= @contact.phone_number %></a></li>
-  <li>Email: <a href="mailto:<%= @contact.email_address %>"><%= @contact.email_address %></a></li>
+  <% @contact.emails.each do |email| %>
+    <li>Email: <a href="mailto:<%= email.address %>"><%= email.address %></a></li>
+  <% end %>
   <li>Birthday: <%= @contact.birthday %></li>
   <li>Company: <%= @contact.company %></li>
 </ul>

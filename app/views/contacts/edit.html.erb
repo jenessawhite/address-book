@@ -9,10 +9,12 @@
   </div>
 
   <div>
-    <%= f.label :email_address %>
-    <div>
-      <%= f.text_field :email_address %>
-    </div>
+    <%= f.fields_for :email_labels do |label_form| %>
+      <%= label_form.fields_for :email do |email_form| %>
+        <%= email_form.label :address %>
+        <%= email_form.email_field :address %>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
