@@ -13,9 +13,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new()
-    Rails.logger.debug(@contact.inspect)
     @contact.email_labels.build.build_email
-    Rails.logger.debug(@contact.email_labels.first.email.inspect)
   end
 
   def update
@@ -52,7 +50,22 @@ class ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit!
+    params.require(:contact).permit(
+      :id,
+      :name,
+      :phone_number,
+      :birthday,
+      :company,
+      email_labels_attributes: [
+        :id,
+        :contact_id,
+        :email_id,
+        email_attributes: [
+          :address,
+          :id
+        ]
+      ]
+    )
   end
 
   def find_contact
