@@ -1,0 +1,7 @@
+<%= form_with model: [ @contact, @email ] do |f| %>
+  <%= f.label :address %>
+  <div>
+    <%= f.email_field :address, class: "p-2 rounded my-2 border border-gray-300" %>
+  </div>
+  <%= f.submit "Save", class: "btn px-3 py-2 hover:bg-blue-200 cursor-pointer transition duration-300 ease-in-out rounded" %>
+<% end %>

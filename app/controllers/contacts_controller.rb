@@ -9,6 +9,7 @@ class ContactsController < ApplicationController
 
   def edit
     find_contact
+    @contact.email_labels.build.build_email
   end
 
   def new
