@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="text-gray-900 leading-tight">
   <head>
     <title>AddressBook</title>
     <%= csrf_meta_tags %>
@@ -7,10 +7,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   </head>
 
-  <body>
-    <a href="<%= root_path%>">Home</a>
-    <%= yield %>
+  <body class="min-h-screen py-4 antialiased">
+    <div class="container mx-auto w-full p-4">
+      <a href="<%= root_path %>" class="mr-2 px-3 py-2 hover:bg-blue-200 transition duration-300 ease-in-out rounded">Home</a>
+      <a href="<%= new_contact_path %>" class="mx-2 px-3 py-2 hover:bg-blue-200 transition duration-300 ease-in-out rounded">Add New Contact</a>
+    </div>
+    <div class="container mx-auto w-full p-4">
+      <%= yield %>
+    </div>
   </body>
 </html>

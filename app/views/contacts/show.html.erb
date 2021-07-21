@@ -1,14 +1,28 @@
-<h1><%= @contact.name %></h1>
-<a href="<%= edit_contact_path %>">Edit</a>
+<h1 class="font-semibold text-xl"><%= @contact.name %></h1>
+<hr class="w-20 my-2 border-blue-200">
+
+<div class="flex my-2">
+<a href="<%= edit_contact_path %>" class="mr-2 px-3 py-2 hover:bg-blue-200 transition duration-300 ease-in-out rounded">Edit</a>
 <%= link_to "Delete", contact_path,
-                  method: :delete,
+                  method: :delete, 
+                  class: "mr-2 px-3 py-2 hover:bg-blue-200 transition duration-300 ease-in-out rounded",
                   data: { confirm: "Are you sure?" } %>
+</div>
 
 <ul>
-  <li>Phone: <a href="tel:+<%= @contact.phone_number %>"><%= @contact.phone_number %></a></li>
+  <li class="py-2">
+    <span class="mr-2 font-semibold">Phone: </span>
+    <a href="tel:+<%= @contact.phone_number %>" class="hover:text-blue-400"><%= @contact.phone_number %></a>
+  </li>
   <% @contact.emails.each do |email| %>
-    <li>Email: <a href="mailto:<%= email.address %>"><%= email.address %></a></li>
+    <li class="py-2">
+      <span class="mr-2 font-semibold">Email:</span> <a href="mailto:<%= email.address %>" class="hover:text-blue-400"><%= email.address %></a>
+    </li>
   <% end %>
-  <li>Birthday: <%= @contact.birthday %></li>
-  <li>Company: <%= @contact.company %></li>
+  <li class="py-2">
+    <span class="mr-2 font-semibold">Birthday: </span><%= @contact.birthday %>
+  </li>
+  <li class="py-2">
+    <span class="mr-2 font-semibold">Company: </span><%= @contact.company %>
+  </li>
 </ul>
